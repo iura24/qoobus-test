@@ -6,10 +6,12 @@ import Input from "../components/Input/Input";
 import classes from "./LoginPage.module.css";
 import Button from "../components/Button/Button";
 import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const state = useSelector((state) => state);
   const registeredUser = state.newUser;
@@ -40,6 +42,14 @@ const LoginPage = () => {
 
   const onSignupHandler = (event) => {
     event.preventDefault();
+    if (!registeredUser) {
+      setErrorMessage(true);
+      resetEmailInput();
+      resetPasswordInput();
+      return;
+    }
+    setErrorMessage(true);
+
     if (
       registeredUser.email === enteredEmail &&
       registeredUser.password === enteredPassword
@@ -52,6 +62,7 @@ const LoginPage = () => {
       });
       resetEmailInput();
       resetPasswordInput();
+      setErrorMessage(false);
       history.push("/");
     }
 
@@ -86,6 +97,13 @@ const LoginPage = () => {
             name="password"
             type="password"
           />
+          {errorMessage ? (
+            <p style={{ color: "red", fontSize: "12px" }}>
+              No such user found, please create an account
+            </p>
+          ) : (
+            ""
+          )}
           <div className={classes.actions}>
             <Button
               type="submit"

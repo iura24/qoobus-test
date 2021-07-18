@@ -12,7 +12,9 @@ const reducer = (state = initialState, action) => {
       };
       return { newUser };
     case "AUTH":
-      return {...state, isAuth: action.payload.isAuth}
+      return { ...state, isAuth: action.payload.isAuth };
+    case "LOGOUT":
+      return { ...state, isAuth: action.payload.isAuth };
     default:
       return state;
   }

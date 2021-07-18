@@ -11,3 +11,10 @@ export const is_auth = (isAuth) => {
     payload: isAuth,
   };
 };
+
+export const logout = (isAuth) => {
+  return {
+    type: "LOGOUT",
+    payload: isAuth,
+  };
+};
