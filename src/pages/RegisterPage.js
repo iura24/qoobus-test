@@ -105,72 +105,78 @@ const RegisterPage = () => {
   };
 
   return (
-    <Card className={classes.register}>
-      <form onSubmit={onSignupHandler}>
-        <h1>Sign up</h1>
-        <Input
-          id="name"
-          label="First Name"
-          isValid={nameInputHasError}
-          errorMessage="First name should not be empty"
-          onChange={nameChangedHandler}
-          onBlur={nameBlurHandler}
-          value={enteredName}
-          name="name"
-          type="text"
-        />
-        <Input
-          id="lastName"
-          label="Last Name"
-          isValid={lastNameHasError}
-          errorMessage="Last name should not be empty"
-          onChange={lastNameChangeHandler}
-          onBlur={lastNameBlurHandler}
-          value={enteredLastName}
-          name="lastName"
-          type="text"
-        />
-        <Input
-          id="email"
-          label="Email"
-          isValid={emailInputHasError}
-          errorMessage="Please enter a valid email"
-          onChange={emailChangedHandler}
-          onBlur={emailBlurHandler}
-          value={enteredEmail}
-          name="email"
-          type="email"
-        />
-        <Input
-          id="password"
-          label="Password"
-          isValid={passwordHasError}
-          errorMessage="Password must contain more than 6 characters"
-          onChange={passwordChangeHandler}
-          onBlur={passwordBlurHandler}
-          value={enteredPassword}
-          name="password"
-          type="password"
-        />
-        <Input
-          id="re-password"
-          label="Repeat Password"
-          isValid={reEnteredPasswordHasError}
-          errorMessage="Password does not match"
-          onChange={reEnteredPasswordChangeHandler}
-          onBlur={reEnteredPasswordBlurHandler}
-          value={reEnteredPassword}
-          name="repeatPassword"
-          type="password"
-        />
-        <div className={classes.actions}>
-          <Button type="submit" disabled={!formIsValid} className={classes.btn}>
-            Signup
-          </Button>
-          <Link to="/login">Back to login</Link>
-        </div>
-      </form>
-    </Card>
+    <div className={classes.layout}>
+      <Card className={classes.register}>
+        <form onSubmit={onSignupHandler}>
+          <h1>Sign up</h1>
+          <Input
+            id="name"
+            label="First Name"
+            isValid={nameInputHasError}
+            errorMessage="First name should not be empty"
+            onChange={nameChangedHandler}
+            onBlur={nameBlurHandler}
+            value={enteredName}
+            name="name"
+            type="text"
+          />
+          <Input
+            id="lastName"
+            label="Last Name"
+            isValid={lastNameHasError}
+            errorMessage="Last name should not be empty"
+            onChange={lastNameChangeHandler}
+            onBlur={lastNameBlurHandler}
+            value={enteredLastName}
+            name="lastName"
+            type="text"
+          />
+          <Input
+            id="email"
+            label="Email"
+            isValid={emailInputHasError}
+            errorMessage="Please enter a valid email"
+            onChange={emailChangedHandler}
+            onBlur={emailBlurHandler}
+            value={enteredEmail}
+            name="email"
+            type="email"
+          />
+          <Input
+            id="password"
+            label="Password"
+            isValid={passwordHasError}
+            errorMessage="Password must contain more than 6 characters"
+            onChange={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
+            value={enteredPassword}
+            name="password"
+            type="password"
+          />
+          <Input
+            id="re-password"
+            label="Repeat Password"
+            isValid={reEnteredPasswordHasError}
+            errorMessage="Password does not match"
+            onChange={reEnteredPasswordChangeHandler}
+            onBlur={reEnteredPasswordBlurHandler}
+            value={reEnteredPassword}
+            name="repeatPassword"
+            type="password"
+          />
+          <div className={classes.actions}>
+            <Button
+              type="submit"
+              disabled={!formIsValid}
+              className={classes.btn}
+            >
+              Signup
+            </Button>
+            <Link to="/login">Back to login</Link>
+          </div>
+        </form>
+      </Card>
+    </div>
   );
 };
 

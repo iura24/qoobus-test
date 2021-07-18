@@ -60,39 +60,45 @@ const LoginPage = () => {
     }
   };
   return (
-    <Card className={classes.register}>
-      <form onSubmit={onSignupHandler}>
-        <h1>Login</h1>
-        <Input
-          id="email"
-          label="Email"
-          isValid={emailInputHasError}
-          errorMessage="Email or password may be wrong"
-          onChange={emailChangedHandler}
-          onBlur={emailBlurHandler}
-          value={enteredEmail}
-          name="email"
-          type="email"
-        />
-        <Input
-          id="password"
-          label="Password"
-          isValid={passwordHasError}
-          errorMessage="Email or password may be wrong"
-          onChange={passwordChangeHandler}
-          onBlur={passwordBlurHandler}
-          value={enteredPassword}
-          name="password"
-          type="password"
-        />
-        <div className={classes.actions}>
-          <Button type="submit" disabled={!formIsValid} className={classes.btn}>
-            Login
-          </Button>
-          <Link to="/signup">Create new account</Link>
-        </div>
-      </form>
-    </Card>
+    <div className={classes.layout}>
+      <Card className={classes.register}>
+        <form onSubmit={onSignupHandler}>
+          <h1>Login</h1>
+          <Input
+            id="email"
+            label="Email"
+            isValid={emailInputHasError}
+            errorMessage="Email or password may be wrong"
+            onChange={emailChangedHandler}
+            onBlur={emailBlurHandler}
+            value={enteredEmail}
+            name="email"
+            type="email"
+          />
+          <Input
+            id="password"
+            label="Password"
+            isValid={passwordHasError}
+            errorMessage="Email or password may be wrong"
+            onChange={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
+            value={enteredPassword}
+            name="password"
+            type="password"
+          />
+          <div className={classes.actions}>
+            <Button
+              type="submit"
+              disabled={!formIsValid}
+              className={classes.btn}
+            >
+              Login
+            </Button>
+            <Link to="/signup">Create new account</Link>
+          </div>
+        </form>
+      </Card>
+    </div>
   );
 };
 
