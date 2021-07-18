@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import useInput from "../hooks/use-input";
 import Card from "../components/Card/Card";
@@ -6,9 +8,9 @@ import Input from "../components/Input/Input";
 import classes from "./RegisterPage.module.css";
 import Button from "../components/Button/Button";
 
-
 const RegisterPage = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const {
     value: enteredName,
@@ -90,11 +92,16 @@ const RegisterPage = () => {
         password: enteredPassword,
       },
     });
+    dispatch({
+      type: "AUTH",
+      payload: { isAuth: true },
+    });
     resetNameInput();
     resetLastNameInput();
     resetEmailInput();
     resetPasswordInput();
     resetReEnteredPInput();
+    history.push("/");
   };
 
   return (
@@ -160,6 +167,7 @@ const RegisterPage = () => {
           <Button type="submit" disabled={!formIsValid} className={classes.btn}>
             Signup
           </Button>
+          <Link to="/login">Back to login</Link>
         </div>
       </form>
     </Card>

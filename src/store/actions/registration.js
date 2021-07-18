@@ -4,3 +4,10 @@ export const add_user = (data) => {
     payload: data,
   };
 };
+
+export const is_auth = (isAuth) => {
+  return {
+    type: "AUTH",
+    payload: isAuth,
+  };
+};

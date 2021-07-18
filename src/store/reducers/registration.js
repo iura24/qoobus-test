@@ -11,6 +11,8 @@ const reducer = (state = initialState, action) => {
         password: action.payload.password,
       };
       return { newUser };
+    case "AUTH":
+      return {...state, isAuth: action.payload.isAuth}
     default:
       return state;
   }

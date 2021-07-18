@@ -12,3 +12,15 @@
   align-items: center;
   padding-top: 1rem;
 }
+
+a {
+  color: #2c1908;
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+a:hover,
+a:active,
+a.active {
+  color: #741188;
+}
